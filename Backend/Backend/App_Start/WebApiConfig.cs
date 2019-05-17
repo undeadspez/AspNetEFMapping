@@ -20,6 +20,12 @@ namespace Backend
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "Home",
+                routeTemplate: "{controller}/{action}",
+                defaults: new { controller = "Home", action = "Index" }
+            );
         }
     }
 }
