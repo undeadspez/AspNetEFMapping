@@ -4,6 +4,7 @@
       <th scope="col">#Id</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +12,13 @@
       <th scope="row">{{student.StudentId}}</th>
       <td>{{student.Name}}</td>
       <td>{{student.Email}}</td>
+      <td class="clearfix">
+        <fa-icon [icon]="faTimes" 
+                class="float-right mr-1" 
+                [style.cursor]="'pointer'"
+                (click)="remove(student)">
+        </fa-icon>
+      </td>
     </tr>
   </tbody>
 </table>

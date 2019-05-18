@@ -117,7 +117,11 @@ namespace Backend.Controllers
         [ResponseType(typeof(StudentDTO))]
         public async Task<IHttpActionResult> DeleteStudent(int id)
         {
-            Student student = await db.Students.FindAsync(id);
+            Student student = await db.Students
+                .Include(s => s.Grades)
+                .Include(s => s.StudentDetails)
+                .FirstOrDefaultAsync(s => s.StudentId == id); 
+
             if (student == null)
             {
                 return NotFound();

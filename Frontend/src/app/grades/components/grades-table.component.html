@@ -1,18 +1,28 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#Id</th>
-      <th scope="col">Student Name</th>
+      <th scope="col">#Grade Id</th>
       <th scope="col">Subject</th>
       <th scope="col">Value</th>
+      <th scope="col">#Student Id</th>
+      <th scope="col">Student Name</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let grade of grades">
       <th scope="row">{{grade.GradeId}}</th>
-      <td>{{grade.Student.Name}}</td>
       <td>{{grade.SubjectName}}</td>
       <td>{{grade.Value}}</td>
+      <th>{{grade.Student.StudentId}}</th>
+      <td>{{grade.Student.Name}}</td>
+      <td class="clearfix">
+        <fa-icon [icon]="faTimes" 
+               class="float-right mr-1" 
+               [style.cursor]="'pointer'"
+               (click)="remove(grade)">
+        </fa-icon>
+      </td>
     </tr>
   </tbody>
 </table>

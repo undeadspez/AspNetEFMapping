@@ -20,7 +20,7 @@ export class StudentsService {
   get = (id: number): Observable<Student> =>
     this.http.get<Student>(`${this.apiUrl}/Students/${id}`);
 
-  remove = (grade: Student): Observable<void> =>
-    this.http.delete<void>(`${this.apiUrl}/Students/${grade.StudentId}`);
+  remove = (student: Student): Observable<void> =>
+    this.http.delete<void>(`${this.apiUrl}/Students/${student.StudentId}`);
     
 }

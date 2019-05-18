@@ -12,7 +12,7 @@ namespace Backend
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext() : base("DefaultConnection")
+        public AppDbContext() : base("Default")
         {
             Database.SetInitializer(new AppDbInitializer());
         }
@@ -36,7 +36,10 @@ namespace Backend
                 {
                     m.Property(g => g.SubjectName);
                     m.ToTable("Subjects");
-                });
+                })
+                .HasRequired(g => g.Student)
+                .WithMany(s => s.Grades)
+                .WillCascadeOnDelete();
 
             base.OnModelCreating(modelBuilder);
         }
