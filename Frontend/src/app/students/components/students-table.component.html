@@ -13,7 +13,7 @@
       <th scope="row">{{student.StudentId}}</th>
       <td>{{student.Name}}</td>
       <td>{{student.Email}}</td>
-      <td>{{student.Average}}</td>
+      <td>{{student.Average?.toFixed(2)}}</td>
       <td class="clearfix">
         <fa-icon [icon]="faTimes" 
                  class="float-right mr-1" 
