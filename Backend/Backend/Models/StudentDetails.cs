@@ -8,12 +8,12 @@ namespace Backend.Models
     {
         [Key, ForeignKey("Student")]
         public int StudentId { get; set; }
-
+        [Required]
         public DateTime DateOfBirth { get; set; }
 
-        public decimal Height { get; set; }
+        public decimal? Height { get; set; }
 
-        public float Weight { get; set; }
+        public float? Weight { get; set; }
 
         public Student Student { get; set; }
     }
