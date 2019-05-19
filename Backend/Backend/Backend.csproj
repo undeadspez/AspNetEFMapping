@@ -200,6 +200,7 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\StudentsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

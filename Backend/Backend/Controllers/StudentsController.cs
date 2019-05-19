@@ -14,6 +14,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Backend.DTOs;
 using Backend.Models;
+using Backend.Services;
 
 namespace Backend.Controllers
 {
@@ -29,6 +30,16 @@ namespace Backend.Controllers
                 .OrderBy(s => s.StudentId)
                 .ProjectTo<StudentDTO>()
                 .ToListAsync();
+
+            var studentsService = new StudentsService();
+
+            studentsService.Calculated += ((int studentId, float average) t) =>
+            {
+                var dto = dtos.Find(s => s.StudentId == t.studentId);
+                dto.Average = t.average;
+            };
+
+            studentsService.Calc(db.Grades.Include(g => g.Student));
 
             return dtos;
         }

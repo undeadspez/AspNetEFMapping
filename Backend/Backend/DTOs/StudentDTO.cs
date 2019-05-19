@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
+﻿
 namespace Backend.DTOs
 {
     public class StudentDTO
@@ -12,5 +8,7 @@ namespace Backend.DTOs
         public string Name { get; set; }
 
         public string Email { get; set; }
+
+        public float? Average { get; set; }
     }
 }
